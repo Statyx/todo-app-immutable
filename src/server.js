@@ -1,6 +1,6 @@
 import Server from 'socket.io';
 
-export function startServer(store) {
+const startServer = (store) => {
   const io = new Server().attach(8090);
 
   // This is really heavy, should be refactored later
@@ -13,3 +13,5 @@ export function startServer(store) {
     socket.on('action', store.dispatch.bind(store)); // Security threat to accept everything
   });
 }
+
+export default startServer;
