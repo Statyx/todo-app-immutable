@@ -72,6 +72,14 @@ describe('application logic', () => {
       }));
     });
 
+    it('cannot vote for entry that is not in tally', () => {
+      const state = Map({
+        pair: List.of('Sunshine', '28 Days Later')
+      });
+      const nextState = vote(state, 'Trainspotting');
+      expect(nextState).to.equal(state);
+    });
+
   });
 
   describe('next', () => {
